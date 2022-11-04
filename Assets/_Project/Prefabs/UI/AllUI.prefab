@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -111,6 +112,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1395668016128543103}
     m_Modifications:
+    - target: {fileID: 5273951705111779393, guid: b486a2a1a84e83e45b93b0e795276d98, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273951705111779393, guid: b486a2a1a84e83e45b93b0e795276d98, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6350178342966549811, guid: b486a2a1a84e83e45b93b0e795276d98, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -41.299805
+      objectReference: {fileID: 0}
+    - target: {fileID: 6350178342966549811, guid: b486a2a1a84e83e45b93b0e795276d98, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30.699951
+      objectReference: {fileID: 0}
     - target: {fileID: 7893047636454893563, guid: b486a2a1a84e83e45b93b0e795276d98, type: 3}
       propertyPath: m_Name
       value: Canvas-Settings
@@ -197,6 +214,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8447685424768945720, guid: b486a2a1a84e83e45b93b0e795276d98, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139978554659146691, guid: b486a2a1a84e83e45b93b0e795276d98, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139978554659146691, guid: b486a2a1a84e83e45b93b0e795276d98, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139978554659146691, guid: b486a2a1a84e83e45b93b0e795276d98, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
