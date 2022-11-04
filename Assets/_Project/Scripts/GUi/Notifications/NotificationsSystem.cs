@@ -6,7 +6,7 @@ namespace _Project.Scripts.GUi.Notifications
 {
     public class NotificationsSystem : MonoBehaviour, IService, INotification
     {
-        private readonly List<NotificationEntity> _entities = new List<NotificationEntity>();
+        [SerializeField] private  List<NotificationEntity> _entities = new List<NotificationEntity>();
 
 
         public void InitializeService()

@@ -8,6 +8,7 @@ namespace _Project.Scripts.SaveSystem
         {
             string id = $"User_Name_";
             PlayerPrefs.SetString(id, name);
+            CreateUser();
         }
 
         public static string GetUserName()

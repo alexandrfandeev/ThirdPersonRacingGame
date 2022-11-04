@@ -19,6 +19,6 @@ namespace _Project.Scripts.GUi.User
 
     public struct CreateUser
     {
-        public Action OnCreate;
+        public Action<string> OnCreate;
     }
 }

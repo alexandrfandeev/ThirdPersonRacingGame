@@ -22,7 +22,10 @@ namespace _Project.Scripts.User
 
         private void CreateUserData()
         {
-            Signal.Current.Fire<CreateUser>(new CreateUser{OnCreate = UserDataSaveSystem.CreateUser});
+            Signal.Current.Fire<CreateUser>(new CreateUser
+            {
+                OnCreate = UserDataSaveSystem.SetUserName
+            });
         }
 
         private void InitializeUserData()
