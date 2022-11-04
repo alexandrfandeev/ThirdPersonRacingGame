@@ -1,3 +1,8 @@
+using _Project.Scripts.Core.LocatorServices;
+using _Project.Scripts.Core.SignalBus;
+using _Project.Scripts.GUi.User;
+using _Project.Scripts.Resources;
+using _Project.Scripts.VehicleController;
 using UnityEngine;
 
 namespace _Project.Scripts.SaveSystem
@@ -23,7 +28,7 @@ namespace _Project.Scripts.SaveSystem
             return PlayerPrefs.GetInt(id, 0);
         }
 
-        public static void CreateUser()
+        private static void CreateUser()
         {
             string id = $"User_";
             PlayerPrefs.SetInt(id, 1);

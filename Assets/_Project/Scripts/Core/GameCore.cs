@@ -3,6 +3,7 @@ using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.GUi.Notifications;
 using _Project.Scripts.User;
+using _Project.Scripts.VehicleController;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;

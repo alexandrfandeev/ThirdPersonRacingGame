@@ -1,8 +1,10 @@
 using System;
+using _Project.Scripts.Development;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 namespace _Project.Scripts.GUi.User.Entities
 {
@@ -11,17 +13,20 @@ namespace _Project.Scripts.GUi.User.Entities
         [SerializeField] private TMP_InputField _inputField;
         [SerializeField] private RectTransform _usernameTab;
         [SerializeField] private Button _confirmNameButton;
+        [SerializeField] private Image _background;
         [SerializeField] private float _apparitionDuration;
         
         private Action<string> _onCreate;
+        private Action _onPress;
         private string _userName;
         
         
-        public void Open(Action<string> onCreate)
+        public void Open(Action<string> onCreate, Action onPress)
         {
             _onCreate = onCreate;
+            _onPress = onPress;
             _confirmNameButton.onClick.AddListener(CreateSuccessfully);
-            _usernameTab.DOScale(1f, _apparitionDuration);
+            UiUtilities.ScaleAndFade(PauseManager.Current.StartPause, _usernameTab, _background, 1f, 0.65f, _apparitionDuration);
         }
 
 
@@ -29,7 +34,8 @@ namespace _Project.Scripts.GUi.User.Entities
         {
             _userName = _inputField.text;
             _onCreate?.Invoke(_userName);
-            _usernameTab.DOScale(0f, _apparitionDuration);
+            _onPress?.Invoke();
+            UiUtilities.ScaleAndFade(PauseManager.Current.StopPause, _usernameTab, _background, 0f, 0f, _apparitionDuration);
         }
     }
 }

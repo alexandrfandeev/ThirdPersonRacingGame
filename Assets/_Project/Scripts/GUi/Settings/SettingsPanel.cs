@@ -1,36 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
+using _Project.Scripts.Development;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingsPanel : MonoBehaviour
+namespace _Project.Scripts.GUi.Settings
 {
-    [SerializeField] private Button _settingsButton;
-    [SerializeField] private GraphicsApplier _graphics;
-    [SerializeField] private RectTransform _rectTransform;
-    [SerializeField] private Image _background;
-    [SerializeField] private float _animationDuration;
-
-    public void Initialize()
+    public class SettingsPanel : MonoBehaviour, IPauseHandler
     {
-        _graphics.Initialize();
-    }
+        [SerializeField] private Button _settingsButton;
+        [SerializeField] private GraphicsApplier _graphics;
+        [SerializeField] private RectTransform _rectTransform;
+        [SerializeField] private Image _background;
+        [SerializeField] private float _animationDuration;
+
+        public void Initialize()
+        {
+            PauseManager.Current.Register(this);
+            _graphics.Initialize();
+        }
     
     
-    public void Open()
-    {
-        PauseManager.Current.StartPause();
-        _settingsButton.interactable = false;
-        _rectTransform.DOScale(1f, _animationDuration);
-        _background.DOFade(0.65f, _animationDuration);
-    }
+        public void Open()
+        {
+            UiUtilities.ScaleAndFade(() =>
+            {
+                PauseManager.Current.StartPause();
+            }, _rectTransform, _background, 1f, 0.65f, _animationDuration);
+        }
 
-    public void Close()
-    {
-        PauseManager.Current.StopPause();
-        _settingsButton.interactable = true;
-        _rectTransform.DOScale(0f, _animationDuration);
-        _background.DOFade(0f, _animationDuration);
+        public void Close()
+        {
+            UiUtilities.ScaleAndFade(() =>
+            {
+                PauseManager.Current.StopPause();
+            }, _rectTransform, _background, 0f, 0f, _animationDuration);
+        }
+
+        public void SetPause()
+        {
+            _settingsButton.interactable = false;
+        }
+
+        public void Play()
+        {
+            _settingsButton.interactable = true;
+        }
     }
 }
