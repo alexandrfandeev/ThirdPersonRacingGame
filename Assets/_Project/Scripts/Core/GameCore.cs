@@ -1,18 +1,56 @@
-using System.Collections;
 using System.Collections.Generic;
+using _Project.Scripts.Core.LocatorServices;
+using _Project.Scripts.Core.SignalBus;
+using _Project.Scripts.GUi.Notifications;
+using _Project.Scripts.User;
+using DG.Tweening;
+using Sirenix.OdinInspector;
+using Sirenix.Utilities;
+using UnityEditor;
 using UnityEngine;
 
-public class GameCore : MonoBehaviour
+namespace _Project.Scripts.Core
 {
-    // Start is called before the first frame update
-    void Start()
+    public class GameCore : MonoBehaviour
     {
-        
-    }
+        [SerializeField, InlineButton("FindAllServices", "Fix")] private List<MonoBehaviour> _initializationServices = new List<MonoBehaviour>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+        private void Awake()
+        {
+            ServiceLocator.Initialize();
+            Signal.Initialize();
+
+            foreach (MonoBehaviour monoBehaviour in _initializationServices)
+            {
+                if (monoBehaviour.TryGetComponent(out IService service))
+                    service.InitializeService();
+            }
+
+            InitializeSystems();
+        }
+
+        private void InitializeSystems()
+        {
+            DOTween.KillAll();
+            ServiceLocator.Current.Get<INotification>().InitializeSystem();
+            ServiceLocator.Current.Get<IUserData>().InitializeSystem();
+        }
+
+        private void FindAllServices()
+        {
+            _initializationServices = new List<MonoBehaviour>();
+            MonoBehaviour[] objects = FindObjectsOfType<MonoBehaviour>(true);
+            objects.ForEach(monoBehaviour =>
+            {
+                if (monoBehaviour is IService)
+                {
+                    _initializationServices.Add(monoBehaviour);
+                }
+            });
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
 }
