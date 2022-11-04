@@ -19,6 +19,7 @@ namespace _Project.Scripts.Core
         private void Awake()
         {
             ServiceLocator.Initialize();
+            PauseManager.Initialize();
             Signal.Initialize();
 
             foreach (MonoBehaviour monoBehaviour in _initializationServices)

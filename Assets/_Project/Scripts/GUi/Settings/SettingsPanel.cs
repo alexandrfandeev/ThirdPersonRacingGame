@@ -20,6 +20,7 @@ public class SettingsPanel : MonoBehaviour
     
     public void Open()
     {
+        PauseManager.Current.StartPause();
         _settingsButton.interactable = false;
         _rectTransform.DOScale(1f, _animationDuration);
         _background.DOFade(0.65f, _animationDuration);
@@ -27,6 +28,7 @@ public class SettingsPanel : MonoBehaviour
 
     public void Close()
     {
+        PauseManager.Current.StopPause();
         _settingsButton.interactable = true;
         _rectTransform.DOScale(0f, _animationDuration);
         _background.DOFade(0f, _animationDuration);
