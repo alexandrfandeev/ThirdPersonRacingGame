@@ -59,8 +59,7 @@ namespace _Project.vehicle
         private float engineLoad = 1;
 
         private bool reverse = false;
-        private bool lightsFlag ; 
-        private bool grounded ;
+        private bool lightsFlag ;
         private bool engineLerp ;
 
         private void Start() {
@@ -75,25 +74,25 @@ namespace _Project.vehicle
         private void Update() {
 
             addDownForce();
-            steerVehicle();
+            SteerVehicle();
             calculateEnginePower();
-            friction();
+            Friction();
             if(isAutomatic)
                 shifter();
             else
-                manual();
+                Manual();
 
 
         }
 
         void FixedUpdate(){
-            activateLights();    
+            ActivateLights();    
         }
 
     
 
-        private void activateLights() {
-            if (IM.vertical < 0 || KPH <= 1) turnLightsOn();
+        private void ActivateLights() {
+            if (IM.Axis.Vertical < 0 || KPH <= 1) turnLightsOn();
             else turnLightsOff();
         }
    
@@ -154,20 +153,21 @@ namespace _Project.vehicle
             }
         }
 
-        public void manual(){
+        private void Manual(){
 
-            if((Input.GetAxis("Fire2") == 1  ) && gearNum <= gears.Length && Time.time >= gearChangeRate ){
+            if (IM.Shift.IsDown && gearNum <= gears.Length && Time.time >= gearChangeRate)
+            {
                 gearNum  = gearNum +1;
                 gearChangeRate = Time.time + 1f/3f ;
                 setEngineLerp(engineRPM - ( engineRPM > 1500 ? 1000 : 700));
-
             }
-            if((Input.GetAxis("Fire3") == 1 ) && gearNum >= 1  && Time.time >= gearChangeRate){
+
+            if (IM.Control.IsDown && gearNum >= 1 && Time.time >= gearChangeRate)
+            {
                 gearChangeRate = Time.time + 1f/3f ;
                 gearNum --;
                 setEngineLerp(engineRPM - ( engineRPM > 1500 ? 1000 : 700));
             }
-    
         }
 
         private void shifter(){
@@ -223,7 +223,7 @@ namespace _Project.vehicle
                 wheels[i].brakeTorque = brakPower;
             }
 
-            wheels[2].brakeTorque = wheels[3].brakeTorque = (IM.handbrake)? Mathf.Infinity : 0f;
+            wheels[2].brakeTorque = wheels[3].brakeTorque = IM.Space.IsDown || IM.IsLocked ? Mathf.Infinity : 0f;
 
             rigidbody.angularDrag = (KPH > 100)? KPH / 100 : 0;
             rigidbody.drag = dragAmount + (KPH / 40000) ;
@@ -232,10 +232,10 @@ namespace _Project.vehicle
 
         }
 
-        private void steerVehicle(){
+        private void SteerVehicle(){
 
-            vertical = IM.vertical;
-            horizontal = Mathf.Lerp(horizontal , IM.horizontal , (IM.horizontal != 0) ? 5 * Time.deltaTime : 5 * 2 * Time.deltaTime);
+            vertical = IM.Axis.Vertical;
+            horizontal = Mathf.Lerp(horizontal , IM.Axis.Horizontal , (IM.Axis.Horizontal != 0) ? 5 * Time.deltaTime : 5 * 2 * Time.deltaTime);
 
             finalTurnAngle = (radius > 5 ) ? radius : 5  ;
 
@@ -261,10 +261,8 @@ namespace _Project.vehicle
             wheelsmanager = GetComponent<wheelsManager>();
             wheels = wheelsmanager.wheels;
             wheelSlip = new float[wheels.Length];
-            rigidbody.centerOfMass = gameObject.transform.Find("centerOfMas").gameObject.transform.localPosition;   
-
-      
-
+            rigidbody.centerOfMass = gameObject.transform.Find("centerOfMas").gameObject.transform.localPosition;
+            IM.LockInputs(true);
         }
 
         private void addDownForce(){
@@ -274,7 +272,7 @@ namespace _Project.vehicle
 
         }
   
-        private void friction(){
+        private void Friction(){
     
             WheelHit hit;
             float sum = 0;
@@ -282,19 +280,17 @@ namespace _Project.vehicle
             for (int i = 0; i < wheels.Length ; i++){
                 if(wheels[i].GetGroundHit(out hit) && i >= 2 ){
                     forwardFriction = wheels[i].forwardFriction;
-                    forwardFriction.stiffness = (IM.handbrake)?  .55f : ForwardStifness; 
+                    forwardFriction.stiffness =  IM.Space.IsDown || IM.IsLocked ?  .55f : ForwardStifness;
                     wheels[i].forwardFriction = forwardFriction;
 
                     sidewaysFriction = wheels[i].sidewaysFriction;
-                    sidewaysFriction.stiffness = (IM.handbrake)? .55f : SidewaysStifness;
+                    sidewaysFriction.stiffness =  IM.Space.IsDown || IM.IsLocked ? .55f : SidewaysStifness;
                     wheels[i].sidewaysFriction = sidewaysFriction;
-                
-                    grounded = true;
+                    
 
                     sum += Mathf.Abs(hit.sidewaysSlip);
 
                 }
-                else grounded = false;
 
                 wheelSlip[i] = Mathf.Abs( hit.forwardSlip ) + Mathf.Abs(hit.sidewaysSlip) ;
                 sidewaysSlip[i] = Mathf.Abs(hit.sidewaysSlip);
@@ -348,6 +344,5 @@ namespace _Project.vehicle
 
         
         }
-
     }
 }

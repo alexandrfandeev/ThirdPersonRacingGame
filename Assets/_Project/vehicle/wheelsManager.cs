@@ -1,3 +1,4 @@
+using System.Collections;
 using _Project.vehicle;
 using UnityEngine;
 
@@ -22,12 +23,16 @@ public class wheelsManager : MonoBehaviour{
     private WheelFrictionCurve forwardFriction , sidewaysFriction;
 
     private VehicleInputs inputM;
-
-    void Start(){
+    private bool _run;
+    
+    
+    IEnumerator Start()
+    {
+        yield return new WaitForSeconds(1f);
         inputM = GetComponent<VehicleInputs>();
         SidewaysFriction = ForwardFriction = Friction;
         findComponents();
-
+        _run = true;
     }
 
     void findComponents(){
@@ -37,6 +42,8 @@ public class wheelsManager : MonoBehaviour{
     }
 
     void Update(){
+        
+        if(!_run) return;
         SidewaysFriction = ForwardFriction = Friction;
         controller.ForwardStifness = ForwardFriction;
         controller.SidewaysStifness = SidewaysFriction;
@@ -67,7 +74,7 @@ public class wheelsManager : MonoBehaviour{
             curve.asymptoteValue = 1;
             curve.extremumSlip = 0.065f;
             curve.asymptoteSlip = 0.8f;
-            curve.stiffness = (inputM.vertical < 0)? ForwardFriction * 2 :ForwardFriction ;
+            curve.stiffness = (inputM.Axis.Vertical < 0)? ForwardFriction * 2 :ForwardFriction ;
             wheels[i].forwardFriction = curve;
             
             curve = wheels[i].sidewaysFriction;
@@ -75,7 +82,7 @@ public class wheelsManager : MonoBehaviour{
             curve.asymptoteValue = 1;
             curve.extremumSlip = 0.065f;
             curve.asymptoteSlip = 0.8f;
-            curve.stiffness = (inputM.vertical < 0)? SidewaysFriction * 2 :SidewaysFriction ;
+            curve.stiffness = (inputM.Axis.Vertical < 0)? SidewaysFriction * 2 :SidewaysFriction ;
             wheels[i].sidewaysFriction = curve;
 
         }

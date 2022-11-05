@@ -40,7 +40,6 @@ public class vehicleManager : EditorWindow{
     GameObject camFocus;
     GameObject centerOfMas;
     Camera mainCam;
-    cameraController camController;
     string bodyCollidersString = "bodyColliders";
 
     static Vector3 frontOffset , rearOffset;
@@ -144,11 +143,6 @@ public class vehicleManager : EditorWindow{
         if(GUILayout.Button("savePrefab",  GUILayout.Height(40))){
             savePrefab();
         }
-        }
-
-        
-        if(GUILayout.Button("Simulate Camera position",  GUILayout.Height(40))){
-            simulateCamera();
         }
 
         if(wheelReferences.Length > 2)
@@ -369,24 +363,6 @@ public class vehicleManager : EditorWindow{
             centerOfMas.transform.parent = VehicleObject.transform;
         }
 
-        try{
-            mainCam = FindObjectOfType<Camera>();
-            if(mainCam.GetComponent<cameraController>() != null){
-                camController = mainCam.GetComponent<cameraController>();
-                if(camController.cameraPos.Length == 0){
-                    camController.cameraPos = new Vector2[2];
-                }
-            }
-        }catch{
-            mainCam = new GameObject().AddComponent<Camera>();
-            mainCam.name = "MainCamera";
-            if(mainCam.GetComponent<cameraController>() != null){
-                camController = mainCam.GetComponent<cameraController>();
-                if(camController.cameraPos.Length == 0){
-                    camController.cameraPos = new Vector2[2];
-                }
-            }        }
-
         setInstances();
 
     }
@@ -447,14 +423,4 @@ public class vehicleManager : EditorWindow{
 
 
     }
-
-    void simulateCamera(){
-        
-        if(camIndex >= camController.cameraPos.Length-1 || camIndex < 0) camIndex = 0;
-        else camIndex ++;
-
-        mainCam.transform.position = camFocus.transform.position - (camFocus.transform.forward * camController.cameraPos[camIndex].x )+ (camFocus.transform.up * camController.cameraPos[camIndex].y);
-        mainCam.transform.LookAt(camFocus.transform);
-    }
-
 }

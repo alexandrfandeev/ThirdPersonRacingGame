@@ -1,46 +1,20 @@
-﻿using System;
+﻿using _Project.Scripts.Core.InputManager;
 using UnityEngine;
 
 namespace _Project.vehicle
 {
     public class VehicleInputs : MonoBehaviour
     {
-        public float vertical;
-        public float horizontal;
-        public bool handbrake;
-        public bool boosting;
-
-        private bool _inputLock = true;
+        public AxisInput Axis  => GlobalInputAdapter.Current.GetAxis(PCInputParameters.Axis);
+        public ButtonInput Space => GlobalInputAdapter.Current.GetButton(PCInputParameters.Space);
+        public ButtonInput Shift => GlobalInputAdapter.Current.GetButton(PCInputParameters.Shift);
+        public ButtonInput Control => GlobalInputAdapter.Current.GetButton(PCInputParameters.Control);
+        
+        public bool IsLocked { get; private set; }
 
         public void LockInputs(bool isLocked)
         {
-            _inputLock = isLocked;
+            IsLocked = isLocked;
         }
-
-
-        void Update()
-        {
-            keyboard();
-        }
-
-        public void keyboard()
-        {
-            if (!_inputLock)
-            {
-                handbrake = (Input.GetAxis("Jump") != 0) ? true : false;
-            }
-
-            else
-            {
-                handbrake = true;
-            }
-            
-            horizontal = Input.GetAxis("Horizontal");
-            vertical = Input.GetAxis("Vertical"); 
-            boosting = true;
-        }
-
-
-
     }
 }

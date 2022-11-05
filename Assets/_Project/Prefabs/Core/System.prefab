@@ -48,12 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e641586f92094ef41bbe193d5ae53b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializationServices:
-  - {fileID: 1937056960}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &260717866750415649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +72,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2ac63c9f2f80f4aa775a637a3ce034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ad: {fileID: 5536508691616243511}
 --- !u!114 &2955708272930176012
 MonoBehaviour:
   m_ObjectHideFlags: 0
