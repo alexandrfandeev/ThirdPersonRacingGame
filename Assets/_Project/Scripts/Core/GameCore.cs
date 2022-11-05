@@ -35,10 +35,10 @@ namespace _Project.Scripts.Core
 
         private void Start()
         {
-            DOTween.KillAll();
             ServiceLocator.Current.Get<INotification>().InitializeSystem();
             ServiceLocator.Current.Get<IUserData>().InitializeSystem();
         }
+
 
         private void FindAllServices()
         {
