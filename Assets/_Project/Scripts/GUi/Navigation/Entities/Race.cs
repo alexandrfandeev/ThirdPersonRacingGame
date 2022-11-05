@@ -11,7 +11,7 @@ namespace _Project.Scripts.GUi.Navigation.Entities
             UiUtilities.ScaleAndFade(() =>
             {
                 PauseManager.Current.StartPause();
-            }, _rect, _background, 1.2f, 0.6f, _animationDuration);
+            }, _rect, _background, 1.5f, 0.6f, _animationDuration);
         }
 
         public override void OnClose()
