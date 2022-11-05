@@ -234,6 +234,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4592554724253362, guid: 4f1da6d1922b35941b59b749ddcd6eaf, type: 3}
   m_PrefabInstance: {fileID: 534033100}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &646910876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 646910877}
+  - component: {fileID: 646910878}
+  - component: {fileID: 646910879}
+  m_Layer: 0
+  m_Name: Ads
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &646910877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646910876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &646910878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646910876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9722bb4a9b8874aa9bbf0bf054ae71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _androidGameId: 
+  _iOSGameId: 
+  _testMode: 1
+--- !u!114 &646910879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646910876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3dc1fb910d4f744d9f7c5d2e40f57a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _androidAdUnitId: Interstitial_Android
+  _iOsAdUnitId: Interstitial_iOS
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2609,10 +2671,6 @@ PrefabInstance:
     - target: {fileID: 1395668016128543103, guid: 72905bbb74138bf428258bcc89fcb579, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7001282401101730788, guid: 72905bbb74138bf428258bcc89fcb579, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.000045776367
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72905bbb74138bf428258bcc89fcb579, type: 3}

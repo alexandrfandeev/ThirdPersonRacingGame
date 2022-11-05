@@ -19,7 +19,7 @@ namespace _Project.Scripts.GUi.RaceSelector
 
         private void OnSelectRace(int selectionIndex)
         {
-            ServiceLocator.Current.Get<ISceneManager>().LoadScene(selectionIndex);
+            ServiceLocator.Current.Get<ISceneManager>().LoadSceneWithAd(selectionIndex);
         }
         
         
