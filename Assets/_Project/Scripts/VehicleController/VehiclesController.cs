@@ -6,7 +6,6 @@ namespace _Project.Scripts.VehicleController
 {
     public class VehiclesController : MonoBehaviour, IService, IVehicleController
     {
-        [SerializeField] private VehicleUpgrades _upgradable;
         [SerializeField] private CarRotator _rotator;
         
         public void InitializeService()
@@ -16,7 +15,7 @@ namespace _Project.Scripts.VehicleController
 
         public void InitializeSystem()
         {
-            _upgradable.Initialize();
+            ServiceLocator.Current.Get<IUpgradeSystem>().Initialize();
             _rotator.Enable();
         }
     }

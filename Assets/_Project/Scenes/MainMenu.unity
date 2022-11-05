@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4477648, g: 0.49774486, b: 0.57541686, a: 1}
+  m_IndirectSpecularColor: {r: 0.44776434, g: 0.49774408, b: 0.5754158, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -699,6 +699,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4476320883849478, guid: e2ad3b87f90c48f4b9df721435d3e40d, type: 3}
   m_PrefabInstance: {fileID: 1272317288}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1591862056 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2443804906142602390, guid: 66fd4dbe2712d3e48863413d5c3ef2c0, type: 3}
+  m_PrefabInstance: {fileID: 1948939173081345048}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aa88a5b8ddce604c96d7d4e99d85a9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1810560998 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7686953534975470569, guid: 72905bbb74138bf428258bcc89fcb579, type: 3}
@@ -1370,18 +1381,22 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 260717866750415648, guid: cfbd2b3e564ca6a4a82ff3022fda4147, type: 3}
       propertyPath: _initializationServices.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 260717866750415648, guid: cfbd2b3e564ca6a4a82ff3022fda4147, type: 3}
       propertyPath: _initializationServices.Array.data[0]
       value: 
-      objectReference: {fileID: 800214982}
+      objectReference: {fileID: 1591862056}
     - target: {fileID: 260717866750415648, guid: cfbd2b3e564ca6a4a82ff3022fda4147, type: 3}
       propertyPath: _initializationServices.Array.data[1]
       value: 
-      objectReference: {fileID: 833895680}
+      objectReference: {fileID: 800214982}
     - target: {fileID: 260717866750415648, guid: cfbd2b3e564ca6a4a82ff3022fda4147, type: 3}
       propertyPath: _initializationServices.Array.data[2]
+      value: 
+      objectReference: {fileID: 833895680}
+    - target: {fileID: 260717866750415648, guid: cfbd2b3e564ca6a4a82ff3022fda4147, type: 3}
+      propertyPath: _initializationServices.Array.data[3]
       value: 
       objectReference: {fileID: 1810560998}
     - target: {fileID: 260717866750415654, guid: cfbd2b3e564ca6a4a82ff3022fda4147, type: 3}

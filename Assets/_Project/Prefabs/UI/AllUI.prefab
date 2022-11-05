@@ -111,22 +111,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1395668016128543103}
     m_Modifications:
-    - target: {fileID: 5273951705111779393, guid: b486a2a1a84e83e45b93b0e795276d98, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5273951705111779393, guid: b486a2a1a84e83e45b93b0e795276d98, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6350178342966549811, guid: b486a2a1a84e83e45b93b0e795276d98, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -41.299805
-      objectReference: {fileID: 0}
-    - target: {fileID: 6350178342966549811, guid: b486a2a1a84e83e45b93b0e795276d98, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -30.699951
-      objectReference: {fileID: 0}
     - target: {fileID: 7893047636454893563, guid: b486a2a1a84e83e45b93b0e795276d98, type: 3}
       propertyPath: m_Name
       value: Canvas-Settings
@@ -213,18 +197,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8447685424768945720, guid: b486a2a1a84e83e45b93b0e795276d98, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9139978554659146691, guid: b486a2a1a84e83e45b93b0e795276d98, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9139978554659146691, guid: b486a2a1a84e83e45b93b0e795276d98, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9139978554659146691, guid: b486a2a1a84e83e45b93b0e795276d98, type: 3}
-      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -445,10 +417,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1395668016128543103}
     m_Modifications:
-    - target: {fileID: 4440221745577690961, guid: ef52a84f9d6620a4496d511d6b1cd3ab, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4676538579510425551, guid: ef52a84f9d6620a4496d511d6b1cd3ab, type: 3}
       propertyPath: m_Pivot.x
       value: 0

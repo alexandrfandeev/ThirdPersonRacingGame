@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.GUi.ColorChanger;
 using _Project.Scripts.SaveSystem;
@@ -12,6 +14,12 @@ namespace _Project.Scripts.VehicleController.Upgrades.Entities
         [SerializeField] private List<Color> _upgradableColors;
         public override UpgradeType Type => UpgradeType.Color;
         public override int Level => UpgradesSaveSystem.GetUpgradeLevel(Type);
+
+
+        private void Awake()
+        {
+            _changeableMaterial.color = _upgradableColors.First();
+        }
 
         public override void Initialize()
         {
