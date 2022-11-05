@@ -16,7 +16,7 @@ namespace _Project.Scripts.VehicleController
         public void InitializeSystem()
         {
             ServiceLocator.Current.Get<IUpgradeSystem>().Initialize();
-            _rotator.Enable();
+            if (_rotator) _rotator.Enable();
         }
     }
 

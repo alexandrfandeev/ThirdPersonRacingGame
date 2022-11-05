@@ -9,13 +9,7 @@ namespace _Project.Scripts.GUi.User
     {
         [SerializeField] private UserDataUi _dataUI;
         [SerializeField] private UserCreationTab _creationTab;
-
-
-        private void Awake()
-        {
-            _dataUI.Disable();
-        }
-
+        
         [Sub]
         private void OnCreateUser(CreateUser reference)
         {

@@ -5,6 +5,7 @@ using _Project.Scripts.GUi.Notifications;
 using _Project.Scripts.GUi.User;
 using _Project.Scripts.Resources;
 using _Project.Scripts.SaveSystem;
+using _Project.Scripts.SceneSystem;
 using _Project.Scripts.VehicleController;
 using UnityEngine;
 using UnityEngine.Purchasing;
@@ -51,8 +52,9 @@ namespace _Project.Scripts.User
             ServiceLocator.Current.Get<IVehicleController>().InitializeSystem();
             Signal.Current.Fire<UserInfo>(new UserInfo
                 { CoinsAmount = ResourcesSaveSystem.GetResourceAmount(Resource.Coin), Name = userName });
-            Signal.Current.Fire<MenuBarActivity>(new MenuBarActivity {Enable = true});
-            ServiceLocator.Current.Get<INotification>().ShowNotification(NotificationType.ToolTip, welcomeText);
+            Signal.Current.Fire<MenuBarActivity>(new MenuBarActivity { Enable = true });
+            if (ServiceLocator.Current.Get<ISceneManager>().Scene == 1)
+                ServiceLocator.Current.Get<INotification>().ShowNotification(NotificationType.ToolTip, welcomeText);
         }
     }
 

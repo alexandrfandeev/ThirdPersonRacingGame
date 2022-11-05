@@ -7,6 +7,8 @@ namespace _Project.Scripts.SceneSystem
 {
     public class SceneManagerSystem : MonoBehaviour, IService, ISceneManager
     {
+        public int Scene => SceneManager.GetActiveScene().buildIndex;
+        
         private InterstitialAd _ad;
         private int _adSceneID;
         
@@ -16,10 +18,14 @@ namespace _Project.Scripts.SceneSystem
             ServiceLocator.Current.Register<ISceneManager>(this);
         }
 
+        public void RestartScene()
+        {
+            SceneManager.LoadScene(Scene);
+        }
+
         public void LoadScene(int sceneIndex)
         {
-            Debug.Log("loaded scene ..." + sceneIndex);
-         //   SceneManager.LoadScene(sceneIndex + 1);
+            SceneManager.LoadScene(sceneIndex);
         }
 
         public void LoadSceneWithAd(int sceneIndex)
@@ -36,6 +42,8 @@ namespace _Project.Scripts.SceneSystem
 
     public interface ISceneManager : IGameService
     {
+        public void RestartScene();
+        public int Scene { get; }
         public void LoadScene(int sceneIndex);
         public void LoadSceneWithAd(int sceneIndex);
         public void LoadSceneAfterAd();
