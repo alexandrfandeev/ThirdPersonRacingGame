@@ -1,4 +1,6 @@
 using System;
+using _Project.Scripts.Core.LocatorServices;
+using _Project.Scripts.SceneSystem;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
@@ -24,7 +26,7 @@ namespace _Project.Scripts.Ads
         }
 
         // Load content to the Ad Unit:
-        public void LoadAd()
+        private void LoadAd()
         {
             // IMPORTANT! Only load content AFTER initialization (in this example, initialization is handled in a different script).
             Debug.Log("Loading Ad: " + _adUnitId);
@@ -38,7 +40,8 @@ namespace _Project.Scripts.Ads
             Debug.Log("Showing Ad: " + _adUnitId);
             Advertisement.Show(_adUnitId, this);
         }
- 
+
+        
         // Implement Load Listener and Show Listener interface methods: 
         public void OnUnityAdsAdLoaded(string adUnitId)
         {
@@ -59,6 +62,10 @@ namespace _Project.Scripts.Ads
  
         public void OnUnityAdsShowStart(string adUnitId) { }
         public void OnUnityAdsShowClick(string adUnitId) { }
-        public void OnUnityAdsShowComplete(string adUnitId, UnityAdsShowCompletionState showCompletionState) { }
+
+        public void OnUnityAdsShowComplete(string adUnitId, UnityAdsShowCompletionState showCompletionState)
+        {
+            ServiceLocator.Current.Get<ISceneManager>().LoadSceneAfterAd();
+        }
     }
 }

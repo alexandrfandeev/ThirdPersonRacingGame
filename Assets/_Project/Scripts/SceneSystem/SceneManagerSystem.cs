@@ -7,9 +7,12 @@ namespace _Project.Scripts.SceneSystem
 {
     public class SceneManagerSystem : MonoBehaviour, IService, ISceneManager
     {
-        [SerializeField] private InterstitialAd _ad;
+        private InterstitialAd _ad;
+        private int _adSceneID;
+        
         public void InitializeService()
         {
+            _ad = GetComponent<InterstitialAd>();
             ServiceLocator.Current.Register<ISceneManager>(this);
         }
 
@@ -21,7 +24,13 @@ namespace _Project.Scripts.SceneSystem
 
         public void LoadSceneWithAd(int sceneIndex)
         {
+            _adSceneID = sceneIndex + 1;
             _ad.ShowAd();
+        }
+
+        public void LoadSceneAfterAd()
+        {
+            SceneManager.LoadScene(_adSceneID);
         }
     }
 
@@ -29,5 +38,6 @@ namespace _Project.Scripts.SceneSystem
     {
         public void LoadScene(int sceneIndex);
         public void LoadSceneWithAd(int sceneIndex);
+        public void LoadSceneAfterAd();
     }
 }
