@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
@@ -22,10 +23,12 @@ namespace _Project.Scripts.GUi.LevelUI
         [SerializeField] private GameObject _winView;
         [SerializeField] private GameObject _loseView;
 
+        private Action _onSubmit;
 
         [Sub]
         private void OnFinishLevel(FinishLevel reference)
         {
+            _onSubmit = reference.OnSubmit;
             PauseManager.Current.StartPause();
             if (reference.IsWin)
             {
@@ -45,11 +48,15 @@ namespace _Project.Scripts.GUi.LevelUI
 
         public void OnRestartLevel()
         {
+            _onSubmit?.Invoke();
+            PauseManager.Current.StopPause();
             ServiceLocator.Current.Get<ISceneManager>().RestartScene();
         }
 
         public void BackToMenu()
         {
+            _onSubmit?.Invoke();
+            PauseManager.Current.StopPause();
             ServiceLocator.Current.Get<ISceneManager>().LoadScene(1);
         }
     }
@@ -59,5 +66,6 @@ namespace _Project.Scripts.GUi.LevelUI
     {
         public bool IsWin;
         public int EarnedCoins;
+        public Action OnSubmit;
     }
 }

@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
+using _Project.Scripts.Core.AssetsLoaders;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.GUi.Notifications;
 using _Project.Scripts.User;
-using _Project.Scripts.VehicleController;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
@@ -20,6 +19,7 @@ namespace _Project.Scripts.Core
 
         private void Awake()
         {
+            AssetsProvider.Initialize();
             ServiceLocator.Initialize();
             PauseManager.Initialize();
             Signal.Initialize();

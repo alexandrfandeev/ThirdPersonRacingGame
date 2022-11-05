@@ -23,9 +23,9 @@ namespace _Project.Scripts.SceneSystem
                         Signal.Current.Fire<FinishLevel>(new FinishLevel
                         {
                             IsWin = _wasFirst, 
-                            EarnedCoins = _entity.CalculateEarning()
+                            EarnedCoins = _entity.CalculateEarning(),
+                            OnSubmit = _entity.UnloadAssets
                         });
-                        gameObject.SetActive(false);
                         break;
                 }
             }

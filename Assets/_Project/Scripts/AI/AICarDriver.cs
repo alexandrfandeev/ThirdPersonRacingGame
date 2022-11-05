@@ -1,5 +1,9 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using _Project.Scripts.Core.LocatorServices;
+using _Project.Scripts.SceneSystem;
+using _Project.Scripts.VehicleController.Utilities;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -7,11 +11,10 @@ namespace _Project.Scripts.AI
 {
     public class AICarDriver : MonoBehaviour
     {
+        [SerializeField] private List<VehicleAIMesh> _aiMeshes = new List<VehicleAIMesh>();
         
-        [SerializeField] private Rigidbody _rigidBody;
-        [SerializeField] private Transform _target;
-
-
+        
+        private Rigidbody _rigidBody;
         private Transform _ownTransform;
         private Vector3 _targetPosition;
         private Vector3 _directionToMovePosition;
@@ -35,18 +38,14 @@ namespace _Project.Scripts.AI
         private float _turnSpeedAcceleration = 300f;
         private float _turnIdleSlowdown = 500f;
         #endregion
-
-        private IEnumerator Start()
+        
+        public void Initialize(Transform target)
         {
-            yield return new WaitForSeconds(3f);
-            Initialize();
-        }
-
-        [Button]
-        public void Initialize()
-        {
+            print(ServiceLocator.Current.Get<ISceneManager>().Scene - 2);
+            _aiMeshes[ServiceLocator.Current.Get<ISceneManager>().Scene - 2].EnableMesh();
+            _rigidBody = GetComponent<Rigidbody>();
             _ownTransform = transform;
-            _targetPosition = _target.position;
+            _targetPosition = target.position;
             StartCoroutine(Move());
         }
         
