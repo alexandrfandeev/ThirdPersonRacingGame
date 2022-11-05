@@ -26,7 +26,7 @@ namespace _Project.Scripts.Development
             Rect rect = new Rect(0, 0, width, height * 2 / 100);
             style.alignment = TextAnchor.UpperLeft;
             style.fontSize = height * 2 / 100;
-            style.normal.textColor = new Color (0.0f, 0.0f, 0.5f, 1.0f);
+            style.normal.textColor = new Color(0.0f, 0.0f, 0.5f, 1.0f);
             float msec = _deltaTime * 1000.0f;
             float fps = 1.0f / _deltaTime;
             string text = $"{msec:0.0} ms ({fps:0.} fps)";

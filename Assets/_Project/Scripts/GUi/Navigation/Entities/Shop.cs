@@ -4,7 +4,7 @@ namespace _Project.Scripts.GUi.Navigation.Entities
 {
     public class Shop : NavigationButton
     {
-        public override NavigationType NavType => NavigationType.Mechanic;
+        public override NavigationType NavType => NavigationType.Shop;
         
 
         public override void OnInteract()
