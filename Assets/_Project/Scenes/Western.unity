@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: c93c2c0a10c924b1db6ba9970ada4a65, type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: dfb22642fd3863c458bd08e52880885e, type: 2}
+  m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -487,15 +487,15 @@ PrefabInstance:
     - target: {fileID: 260717866750415648, guid: cfbd2b3e564ca6a4a82ff3022fda4147, type: 3}
       propertyPath: _initializationServices.Array.data[0]
       value: 
-      objectReference: {fileID: 967854977}
+      objectReference: {fileID: 1948939174055760963}
     - target: {fileID: 260717866750415648, guid: cfbd2b3e564ca6a4a82ff3022fda4147, type: 3}
       propertyPath: _initializationServices.Array.data[1]
       value: 
-      objectReference: {fileID: 2443804905681085195}
+      objectReference: {fileID: 967854977}
     - target: {fileID: 260717866750415648, guid: cfbd2b3e564ca6a4a82ff3022fda4147, type: 3}
       propertyPath: _initializationServices.Array.data[2]
       value: 
-      objectReference: {fileID: 1948939174055760963}
+      objectReference: {fileID: 2443804905681085195}
     - target: {fileID: 260717866750415648, guid: cfbd2b3e564ca6a4a82ff3022fda4147, type: 3}
       propertyPath: _initializationServices.Array.data[3]
       value: 

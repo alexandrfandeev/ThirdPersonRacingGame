@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
@@ -29,10 +30,10 @@ namespace _Project.Scripts.Core
                     service.InitializeService();
             }
 
-            InitializeSystems();
+            DOTween.KillAll();
         }
 
-        private void InitializeSystems()
+        private void Start()
         {
             DOTween.KillAll();
             ServiceLocator.Current.Get<INotification>().InitializeSystem();
