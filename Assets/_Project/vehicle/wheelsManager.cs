@@ -21,10 +21,10 @@ public class wheelsManager : MonoBehaviour{
 
     private WheelFrictionCurve forwardFriction , sidewaysFriction;
 
-    private inputManager inputM;
+    private VehicleInputs inputM;
 
     void Start(){
-        inputM = GetComponent<inputManager>();
+        inputM = GetComponent<VehicleInputs>();
         SidewaysFriction = ForwardFriction = Friction;
         findComponents();
 

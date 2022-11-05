@@ -39,13 +39,16 @@ namespace _Project.Scripts.AI
         private float _turnIdleSlowdown = 500f;
         #endregion
         
-        public void Initialize(Transform target)
+        public void Initialize()
         {
-            print(ServiceLocator.Current.Get<ISceneManager>().Scene - 2);
             _aiMeshes[ServiceLocator.Current.Get<ISceneManager>().Scene - 2].EnableMesh();
             _rigidBody = GetComponent<Rigidbody>();
+            _targetPosition = FindObjectOfType<AITarget>().Position;
             _ownTransform = transform;
-            _targetPosition = target.position;
+        }
+
+        public void StartRace()
+        {
             StartCoroutine(Move());
         }
         

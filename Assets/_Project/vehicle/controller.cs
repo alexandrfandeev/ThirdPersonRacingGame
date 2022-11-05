@@ -3,7 +3,7 @@ using UnityEngine;
 namespace _Project.vehicle
 {
     [RequireComponent(typeof(wheelsManager)) ]
-    [RequireComponent(typeof(inputManager)) ]
+    [RequireComponent(typeof(VehicleInputs)) ]
     public class controller : MonoBehaviour{
     
         internal enum driveType{
@@ -14,7 +14,7 @@ namespace _Project.vehicle
         [SerializeField]private driveType drive;
 
         //scripts ->
-        private inputManager IM;
+        private VehicleInputs IM;
         private wheelsManager wheelsmanager;
 
         //components
@@ -65,6 +65,11 @@ namespace _Project.vehicle
 
         private void Start() {
             getObjects();
+        }
+
+        public void StartRace()
+        {
+            IM.LockInputs(false);
         }
 
         private void Update() {
@@ -251,7 +256,7 @@ namespace _Project.vehicle
         }
    
         private void getObjects(){
-            IM = GetComponent<inputManager>();
+            IM = GetComponent<VehicleInputs>();
             rigidbody = GetComponent<Rigidbody>();
             wheelsmanager = GetComponent<wheelsManager>();
             wheels = wheelsmanager.wheels;

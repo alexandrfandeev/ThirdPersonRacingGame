@@ -1,7 +1,8 @@
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.SceneSystem;
 using UnityEngine;
-namespace _Project.Scripts.GUi.RaceSelector
+
+namespace _Project.Scripts.GUi.Race
 {
     public class RaceSelectionHandler : MonoBehaviour
     {
