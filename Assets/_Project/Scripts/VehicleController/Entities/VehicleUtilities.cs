@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,12 +19,18 @@ namespace _Project.Scripts.VehicleController.Entities
 
         public void ChangeColor(Color changeableColor)
         {
-            _renderers.ForEach(x =>
+            StartCoroutine(Set(changeableColor));
+        }
+
+        private IEnumerator Set(Color color)
+        {
+            for (int i = 0; i < _renderers.Count; i++)
             {
-                x.GetPropertyBlock(_propertyBlock);
-                _propertyBlock.SetColor(Color1, changeableColor);
-                x.SetPropertyBlock(_propertyBlock);
-            });
+                _renderers[i].GetPropertyBlock(_propertyBlock);
+                _propertyBlock.SetColor(Color1, color);
+                _renderers[i].SetPropertyBlock(_propertyBlock);
+                yield return null;
+            }
         }
     }
 }

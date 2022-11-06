@@ -1,3 +1,5 @@
+using _Project.Scripts.Resources;
+using _Project.Scripts.SaveSystem;
 using UnityEngine;
 
 namespace _Project.Scripts.GUi.Utilities
