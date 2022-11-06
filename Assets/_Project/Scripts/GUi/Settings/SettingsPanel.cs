@@ -1,48 +1,21 @@
-using _Project.Scripts.Development;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace _Project.Scripts.GUi.Settings
 {
-    public class SettingsPanel : MonoBehaviour, IPauseHandler
+    public abstract class SettingsPanel : MonoBehaviour
     {
-        [SerializeField] private Button _settingsButton;
-        [SerializeField] private GraphicsApplier _graphics;
-        [SerializeField] private RectTransform _rectTransform;
-        [SerializeField] private Image _background;
-        [SerializeField] private float _animationDuration;
+        [SerializeField] protected Button _settingsButton;
+        [SerializeField] protected RectTransform _rectTransform;
+        [SerializeField] protected Image _background;
+        [SerializeField] protected float _animationDuration = 0.35f;
 
-        public void Initialize()
+        public virtual void Initialize()
         {
-            PauseManager.Current.Register(this);
-            _graphics.Initialize();
+            
         }
-    
-    
-        public void Open()
-        {
-            UiUtilities.ScaleAndFade(() =>
-            {
-                PauseManager.Current.StartPause();
-            }, _rectTransform, _background, 1f, 0.65f, _animationDuration);
-        }
+        public abstract void Open();
 
-        public void Close()
-        {
-            UiUtilities.ScaleAndFade(() =>
-            {
-                PauseManager.Current.StopPause();
-            }, _rectTransform, _background, 0f, 0f, _animationDuration);
-        }
-
-        public void SetPause()
-        {
-            _settingsButton.interactable = false;
-        }
-
-        public void Play()
-        {
-            _settingsButton.interactable = true;
-        }
+        public abstract void Close();
     }
 }

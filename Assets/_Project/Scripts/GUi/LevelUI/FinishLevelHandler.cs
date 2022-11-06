@@ -48,10 +48,12 @@ namespace _Project.Scripts.GUi.LevelUI
         {
             yield return new WaitForSeconds(_delayOnFinish);
             UiUtilities.ScaleAndFade(null, _rect, _background, 1f, 0.65f, _animationDuration);
+            StartCoroutine(AnimationUtilities.WaitForAction(() => Time.timeScale = 0f, _animationDuration));
         }
 
         public void OnRestartLevel()
         {
+            Time.timeScale = 1f;
             _onSubmit?.Invoke();
             PauseManager.Current.StopPause();
             ServiceLocator.Current.Get<ISceneManager>().RestartScene();
@@ -59,6 +61,7 @@ namespace _Project.Scripts.GUi.LevelUI
 
         public void BackToMenu()
         {
+            Time.timeScale = 1f;
             _onSubmit?.Invoke();
             ResourcesSaveSystem.IncrementResourceAmount(Resource.Coin, _earnAmount);
             PauseManager.Current.StopPause();

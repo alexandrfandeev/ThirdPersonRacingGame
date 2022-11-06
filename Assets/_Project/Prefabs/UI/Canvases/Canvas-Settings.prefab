@@ -803,8 +803,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5507769004831679834}
-        m_TargetAssemblyTypeName: SettingsPanel, Assembly-CSharp
+      - m_Target: {fileID: 8402322707196097136}
+        m_TargetAssemblyTypeName: _Project.Scripts.GUi.Settings.SettingsEntities.MenuSettings,
+          Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
         m_Arguments:
@@ -1843,8 +1844,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5507769004831679834}
-        m_TargetAssemblyTypeName: SettingsPanel, Assembly-CSharp
+      - m_Target: {fileID: 8402322707196097136}
+        m_TargetAssemblyTypeName: _Project.Scripts.GUi.Settings.SettingsEntities.MenuSettings,
+          Assembly-CSharp
         m_MethodName: Open
         m_Mode: 1
         m_Arguments:
@@ -1966,7 +1968,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6852636320688376290}
-  - component: {fileID: 5507769004831679834}
+  - component: {fileID: 8402322707196097136}
   - component: {fileID: 2721401332988552519}
   m_Layer: 5
   m_Name: Panel
@@ -1997,7 +1999,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5507769004831679834
+--- !u!114 &8402322707196097136
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2006,14 +2008,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7991518153054036777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc188168ba64d4a7ba5ba77518deb07f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8503a044599831e41999c1f47092b395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _settingsButton: {fileID: 3705913466436105085}
   _graphics: {fileID: 2721401332988552519}
   _rectTransform: {fileID: 897624485477901681}
   _background: {fileID: 7026946023488780934}
-  _animationDuration: 0.4
+  _animationDuration: 0.35
 --- !u!114 &2721401332988552519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2392,4 +2394,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2424510a422f1469fb4de72d4aa730f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panel: {fileID: 5507769004831679834}
+  _panel: {fileID: 8402322707196097136}
