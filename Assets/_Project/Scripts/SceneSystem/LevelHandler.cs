@@ -62,6 +62,7 @@ namespace _Project.Scripts.SceneSystem
                 }
             });
             yield return new WaitForSeconds(_startingDelay);
+            _vehicle.Initialize();
             _vehicle.ChangeColor(ServiceLocator.Current.Get<IVehicleController>().Data.Color);
             _ai.Initialize();
             ServiceLocator.Current.Get<ICameraManager>().SwitchCamera(_vehicle.transform);
