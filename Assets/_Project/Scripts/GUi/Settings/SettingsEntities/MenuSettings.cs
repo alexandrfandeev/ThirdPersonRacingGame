@@ -1,3 +1,4 @@
+using _Project.Scripts.Core.PauseSystem;
 using _Project.Scripts.Development;
 using UnityEngine;
 

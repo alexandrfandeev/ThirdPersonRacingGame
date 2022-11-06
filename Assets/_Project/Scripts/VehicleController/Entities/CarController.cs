@@ -1,5 +1,7 @@
 using System.Collections;
+using _Project.Scripts.Core;
 using _Project.Scripts.Development;
+using _Project.Scripts.GUi.Race;
 using Sirenix.Utilities;
 using UnityEngine;
 
@@ -55,7 +57,7 @@ namespace _Project.Scripts.VehicleController.Entities
 
         private bool _reverse;
         private bool _engineLerp;
-
+        
         public void Initialize()
         {
             _wheelSlip = new float[_wheels.Length];
@@ -75,6 +77,7 @@ namespace _Project.Scripts.VehicleController.Entities
         {
             while (true)
             {
+                UIUpdatesContainer.Current.UpdateFloat(_rigidbody.velocity.magnitude);
                 _wheelsManager.HandleWheels();
                 AddDownForce();
                 SteerVehicle();
@@ -147,6 +150,7 @@ namespace _Project.Scripts.VehicleController.Entities
             if (_inputManager.Shift.IsDown && _gearNum + 1 < gears.Length && Time.time >= _gearChangeRate)
             { 
                 _gearNum += 1;
+                UIUpdatesContainer.Current.UpdateInt(_gearNum);
                 _gearChangeRate = Time.time + 1f / 3f;
                 SetEngineLerp(_engineRpm - (_engineRpm > 1500 ? 1000 : 700));
             }
@@ -155,6 +159,7 @@ namespace _Project.Scripts.VehicleController.Entities
             {
                 _gearChangeRate = Time.time + 1f / 3f;
                 _gearNum--;
+                UIUpdatesContainer.Current.UpdateInt(_gearNum);
                 SetEngineLerp(_engineRpm - (_engineRpm > 1500 ? 1000 : 700));
             }
         }

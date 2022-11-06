@@ -1,5 +1,6 @@
 using System;
 using _Project.Scripts.Core;
+using _Project.Scripts.Core.PauseSystem;
 using _Project.Scripts.Core.SignalBus;
 using UnityEngine;
 

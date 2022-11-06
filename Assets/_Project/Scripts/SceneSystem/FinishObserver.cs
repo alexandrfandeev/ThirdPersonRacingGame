@@ -1,4 +1,5 @@
 using System;
+using _Project.Scripts.Core;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.GUi.LevelUI;
@@ -22,6 +23,7 @@ namespace _Project.Scripts.SceneSystem
                         break;
                     case VehicleType.Player:
                         ILevelHandler levelHandler = ServiceLocator.Current.Get<ILevelHandler>();
+                        Signal.Current.Fire<EndSceneLogic>(new EndSceneLogic());
                         Signal.Current.Fire<FinishLevel>(new FinishLevel
                         {
                             IsWin = _wasFirst, 

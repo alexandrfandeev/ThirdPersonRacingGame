@@ -1,3 +1,4 @@
+using _Project.Scripts.Core.PauseSystem;
 using _Project.Scripts.Development;
 
 namespace _Project.Scripts.GUi.Navigation.Entities

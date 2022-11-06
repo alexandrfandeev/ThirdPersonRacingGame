@@ -1,4 +1,5 @@
 using System;
+using _Project.Scripts.Core.PauseSystem;
 using _Project.Scripts.GUi.Utilities;
 using UnityEngine;
 using UnityEngine.UI;

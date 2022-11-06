@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using _Project.Scripts.Core.AssetsLoaders;
 using _Project.Scripts.Core.InputManager;
 using _Project.Scripts.Core.LocatorServices;
+using _Project.Scripts.Core.PauseSystem;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.GUi.Notifications;
 using _Project.Scripts.User;
@@ -21,6 +22,7 @@ namespace _Project.Scripts.Core
             GlobalInputAdapter.Initialize();
             ServiceLocator.Initialize();
             PauseManager.Initialize();
+            UIUpdatesContainer.Initialize();
             Signal.Initialize();
             FindAllServices();
             DOTween.KillAll();
@@ -53,4 +55,5 @@ namespace _Project.Scripts.Core
     }
 
     public struct StartSceneLogic { }
+    public struct EndSceneLogic { }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using _Project.Scripts.Core.LocatorServices;
+using _Project.Scripts.Core.PauseSystem;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.Development;
 using _Project.Scripts.Resources;

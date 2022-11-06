@@ -6,11 +6,9 @@ using _Project.Scripts.Core.AssetsLoaders;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.GUi.Race;
-using _Project.Scripts.Resources;
 using _Project.Scripts.SaveSystem;
 using _Project.Scripts.VehicleController;
 using _Project.Scripts.VehicleController.Entities;
-using _Project.Scripts.VehicleController.Upgrades;
 using UnityEngine;
 
 namespace _Project.Scripts.SceneSystem

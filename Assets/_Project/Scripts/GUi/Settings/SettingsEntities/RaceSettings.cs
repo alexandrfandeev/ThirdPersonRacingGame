@@ -1,4 +1,5 @@
 using _Project.Scripts.Core.LocatorServices;
+using _Project.Scripts.Core.PauseSystem;
 using _Project.Scripts.Development;
 using _Project.Scripts.SceneSystem;
 using UnityEngine;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using _Project.Scripts.Core.PauseSystem;
 using UnityEngine;
 
 namespace _Project.Scripts.VehicleController.Utilities.AI
