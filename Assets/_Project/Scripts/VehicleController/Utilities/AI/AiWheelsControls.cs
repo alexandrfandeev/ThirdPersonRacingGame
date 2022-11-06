@@ -36,7 +36,7 @@ namespace _Project.Scripts.VehicleController.Utilities.AI
             {
                 axisRotation += axisMultiplier;
                 Vector3 rotationAngle = new Vector3(axisRotation, _startRotation.y, _startRotation.z);
-                _wheels.ForEach(x => x.Rotate(rotationAngle));
+                if (!PauseManager.Current.IsOnPause) _wheels.ForEach(x => x.Rotate(rotationAngle));
                 yield return null;
             }
         }

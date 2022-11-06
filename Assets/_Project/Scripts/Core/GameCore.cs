@@ -51,4 +51,6 @@ namespace _Project.Scripts.Core
             }
         }
     }
+
+    public struct StartSceneLogic { }
 }

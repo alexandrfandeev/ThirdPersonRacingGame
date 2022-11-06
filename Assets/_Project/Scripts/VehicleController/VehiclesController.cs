@@ -1,5 +1,7 @@
 using System;
+using _Project.Scripts.Core;
 using _Project.Scripts.Core.LocatorServices;
+using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.VehicleController.Upgrades;
 using UnityEngine;
 
@@ -7,8 +9,6 @@ namespace _Project.Scripts.VehicleController
 {
     public class VehiclesController : MonoBehaviour, IService, IVehicleController
     {
-        [SerializeField] private CarRotator _rotator;
-        
         public VehicleData Data => _data;
         
         private VehicleData _data;
@@ -18,11 +18,11 @@ namespace _Project.Scripts.VehicleController
             ServiceLocator.Current.Register<IVehicleController>(this);
         }
 
-        public void InitializeSystem()
+        [Sub]
+        public void InitializeSystem(StartSceneLogic reference)
         {
             _data = new VehicleData();
             ServiceLocator.Current.Get<IUpgradeSystem>().Initialize(_data);
-            if (_rotator) _rotator.Enable();
         }
     }
 
@@ -34,7 +34,6 @@ namespace _Project.Scripts.VehicleController
 
     public interface IVehicleController : IGameService
     {
-        public void InitializeSystem();
         public VehicleData Data { get; }
     }
 }

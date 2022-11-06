@@ -1,3 +1,4 @@
+using _Project.Scripts.Core;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.GUi.Navigation;
@@ -36,7 +37,7 @@ namespace _Project.Scripts.User
 
         private void SubmitUser()
         {
-            ServiceLocator.Current.Get<IVehicleController>().InitializeSystem();
+            Signal.Current.Fire<StartSceneLogic>(new StartSceneLogic());
             Signal.Current.Fire<UserInfo>(new UserInfo
             {
                 CoinsAmount = ResourcesSaveSystem.GetResourceAmount(Resource.Coin),
@@ -47,9 +48,9 @@ namespace _Project.Scripts.User
 
         private void InitializeUserData()
         {
+            Signal.Current.Fire<StartSceneLogic>(new StartSceneLogic());
             string userName = UserDataSaveSystem.GetUserName();
             string welcomeText = "Welcome back, " + userName;
-            ServiceLocator.Current.Get<IVehicleController>().InitializeSystem();
             Signal.Current.Fire<UserInfo>(new UserInfo
                 { CoinsAmount = ResourcesSaveSystem.GetResourceAmount(Resource.Coin), Name = userName });
             Signal.Current.Fire<MenuBarActivity>(new MenuBarActivity { Enable = true });

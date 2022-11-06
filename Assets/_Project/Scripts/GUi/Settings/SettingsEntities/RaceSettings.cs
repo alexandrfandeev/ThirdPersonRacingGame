@@ -1,4 +1,3 @@
-using System.Collections;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Development;
 using _Project.Scripts.SceneSystem;
@@ -9,12 +8,14 @@ namespace _Project.Scripts.GUi.Settings.SettingsEntities
     {
         public override void Open()
         {
+            PauseManager.Current.StartPause();
             UiUtilities.ScaleAndFade(null, _rectTransform, _background, 1f, 0.65f, _animationDuration);
             StartCoroutine(AnimationUtilities.WaitForAction(() => Time.timeScale = 0f, _animationDuration));
         }
 
         public override void Close()
         {
+            PauseManager.Current.StopPause();
             Time.timeScale = 1f;
             UiUtilities.ScaleAndFade(null, _rectTransform, _background, 0f, 0f, _animationDuration);
         }

@@ -1,43 +1,43 @@
-using Sirenix.OdinInspector;
+using System;
+using _Project.Scripts.Core;
+using _Project.Scripts.Core.SignalBus;
 using UnityEngine;
 
-public class CarRotator : MonoBehaviour, IPauseHandler
+namespace _Project.Scripts.VehicleController.Utilities
 {
-    [SerializeField, Range(2.0f, 10.0f)] private float _rotationSpeed;
-    
-    
-    private Transform _ownTransform;
-    private Quaternion _turningAxis;
-    private float _xAxis;
-    private bool _isPause;
-    private bool _isDragging;
-
-    [Button()]
-    public void Enable()
+    public class CarRotator : MonoBehaviour, IPauseHandler
     {
-        PauseManager.Current.Register(this);
-        _ownTransform = transform;
-        _isDragging = true;
-    }
-    private void OnMouseDrag()
-    { 
-        if (!_isDragging || _isPause) return;
-        _xAxis = Input.GetAxis("Mouse X") * _rotationSpeed;
-        _ownTransform.Rotate(Vector3.down, _xAxis);
-    }
+        [SerializeField, Range(2.0f, 10.0f)] private float _rotationSpeed;
 
-    public void Disable()
-    {
-        _isDragging = false;
-    }
+        private Transform _ownTransform;
+        private Quaternion _turningAxis;
+        private float _xAxis;
+        private bool _isPause;
+        private bool _isDragging;
+        
+        [Sub]
+        private void OnStartScene(StartSceneLogic reference)
+        {
+            PauseManager.Current.Register(this);
+            _ownTransform = transform;
+            _isDragging = true;
+        }
 
-    public void SetPause()
-    {
-        _isPause = true;
-    }
+        private void OnMouseDrag()
+        { 
+            if (!_isDragging || _isPause) return;
+            _xAxis = Input.GetAxis("Mouse X") * _rotationSpeed;
+            _ownTransform.Rotate(Vector3.down, _xAxis);
+        }
 
-    public void Play()
-    {
-        _isPause = false;
+        public void SetPause()
+        {
+            _isPause = true;
+        }
+
+        public void Play()
+        {
+            _isPause = false;
+        }
     }
 }

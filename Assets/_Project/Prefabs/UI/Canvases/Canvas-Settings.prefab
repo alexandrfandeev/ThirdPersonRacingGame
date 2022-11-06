@@ -376,7 +376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6871636817119753167
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2012,10 +2012,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settingsButton: {fileID: 3705913466436105085}
-  _graphics: {fileID: 2721401332988552519}
   _rectTransform: {fileID: 897624485477901681}
   _background: {fileID: 7026946023488780934}
   _animationDuration: 0.35
+  _graphics: {fileID: 2721401332988552519}
 --- !u!114 &2721401332988552519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2394,4 +2394,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2424510a422f1469fb4de72d4aa730f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _view: {fileID: 8450854274539804567}
   _panel: {fileID: 8402322707196097136}
