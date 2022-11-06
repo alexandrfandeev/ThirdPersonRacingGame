@@ -230,8 +230,8 @@ namespace _Project.vehicle
                 }
                 wheels[i].brakeTorque = brakPower;
             }
-
-            wheels[2].brakeTorque = wheels[3].brakeTorque = IM.Space.IsDown || IM.IsLocked ? Mathf.Infinity : 0f;
+            
+            wheels[2].brakeTorque = wheels[3].brakeTorque = IM.Space.IsDown || IM.IsLocked ? 999f : 0f;
 
             rigidbody.angularDrag = (KPH > 100)? KPH / 100 : 0;
             rigidbody.drag = dragAmount + (KPH / 40000) ;
@@ -287,11 +287,11 @@ namespace _Project.vehicle
             float[] sidewaysSlip = new float[wheels.Length];
             for (int i = 0; i < wheels.Length ; i++){
                 if(wheels[i].GetGroundHit(out hit) && i >= 2 ){
-                    forwardFriction = wheels[i].forwardFriction;
+                    forwardFriction = wheels[i].forwardFriction; 
                     forwardFriction.stiffness =  IM.Space.IsDown || IM.IsLocked ?  .55f : ForwardStifness;
                     wheels[i].forwardFriction = forwardFriction;
 
-                    sidewaysFriction = wheels[i].sidewaysFriction;
+                    sidewaysFriction = wheels[i].sidewaysFriction; 
                     sidewaysFriction.stiffness =  IM.Space.IsDown || IM.IsLocked ? .55f : SidewaysStifness;
                     wheels[i].sidewaysFriction = sidewaysFriction;
                     
