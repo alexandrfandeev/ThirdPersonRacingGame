@@ -10,12 +10,12 @@ namespace _Project.Scripts.Ads
         [SerializeField] bool _testMode = true;
         private string _gameId;
  
-        void Awake()
+        private void Awake()
         {
             InitializeAds();
         }
  
-        public void InitializeAds()
+        private void InitializeAds()
         {
             _gameId = (Application.platform == RuntimePlatform.IPhonePlayer)
                 ? _iOSGameId

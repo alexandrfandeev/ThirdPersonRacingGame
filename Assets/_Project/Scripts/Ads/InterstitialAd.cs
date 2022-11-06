@@ -10,7 +10,9 @@ namespace _Project.Scripts.Ads
     {
         [SerializeField] string _androidAdUnitId = "Interstitial_Android";
         [SerializeField] string _iOsAdUnitId = "Interstitial_iOS";
-        string _adUnitId;
+        
+        private string _adUnitId;
+        
  
         private void Awake()
         {
