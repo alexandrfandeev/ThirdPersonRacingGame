@@ -30,8 +30,12 @@ namespace _Project.Scripts.SceneSystem
 
         public void LoadSceneWithAd(int sceneIndex)
         {
+#if !UNITY_EDITOR
+               SceneManager.LoadScene(sceneIndex + 1);
+#endif
+            
             _adSceneID = sceneIndex + 1;
-            _ad.ShowAd();
+            _ad.ShowAd(); 
         }
 
         public void LoadSceneAfterAd()
