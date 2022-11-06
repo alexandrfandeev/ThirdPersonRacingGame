@@ -1,4 +1,3 @@
-using _Project.vehicle;
 using UnityEngine;
 
 namespace _Project.Scripts.VehicleController.Entities
@@ -9,7 +8,7 @@ namespace _Project.Scripts.VehicleController.Entities
         public WheelCollider[] Colliders;
         [Range(0.8f, 1.7f)] public float Friction;
         
-        [SerializeField] private controller controller;
+        [SerializeField] private CarController carController;
 
         [HideInInspector] public GameObject[] wheelObjects;
         private Vector3 _wheelPosition;
@@ -28,8 +27,8 @@ namespace _Project.Scripts.VehicleController.Entities
         public void HandleWheels()
         {
             _sidewaysFriction = _forwardFriction = Friction;
-            controller.ForwardStifness = _forwardFriction;
-            controller.SidewaysStifness = _sidewaysFriction;
+            carController.ForwardStifness = _forwardFriction;
+            carController.SidewaysStifness = _sidewaysFriction;
             Animate();
         }
         private void Animate()

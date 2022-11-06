@@ -1,12 +1,11 @@
 using System.Collections;
-using _Project.Scripts.VehicleController.Entities;
 using UnityEngine;
 
-namespace _Project.vehicle
+namespace _Project.Scripts.VehicleController.Entities
 {
     [RequireComponent(typeof(VehicleWheelsManager)) ]
     [RequireComponent(typeof(VehicleInputs)) ]
-    public class controller : MonoBehaviour{
+    public class CarController : MonoBehaviour{
     
         internal enum driveType{
             frontWheelDrive,
@@ -44,6 +43,8 @@ namespace _Project.vehicle
         [HideInInspector]public float SidewaysStifness;
         [HideInInspector]public float KPH;
 
+        private VehicleUtilities _utilities;
+
         private int gearNum = 1;
         private float engineRPM;
         private float totalPower;
@@ -65,7 +66,7 @@ namespace _Project.vehicle
         private bool engineLerp ;
 
         private IEnumerator Start() {
-            getObjects();
+            GetObjects();
             wheelsmanager.Initialize(IM.Axis.Vertical);
             yield return new WaitForSeconds(1f);
             StartCoroutine(Drive());
@@ -81,7 +82,7 @@ namespace _Project.vehicle
             while (true)
             {
                 wheelsmanager.HandleWheels();
-                addDownForce();
+                AddDownForce();
                 SteerVehicle();
                 calculateEnginePower();
                 Friction();
@@ -263,23 +264,31 @@ namespace _Project.vehicle
 
         }
    
-        private void getObjects(){
+        private void GetObjects()
+        {
+            _utilities = GetComponentInChildren<VehicleUtilities>();
             IM = GetComponent<VehicleInputs>();
             rigidbody = GetComponent<Rigidbody>();
             wheelsmanager = GetComponent<VehicleWheelsManager>();
             wheels = wheelsmanager.Colliders;
             wheelSlip = new float[wheels.Length];
             rigidbody.centerOfMass = gameObject.transform.Find("centerOfMas").gameObject.transform.localPosition;
+            _utilities.Initialize();
             IM.LockInputs(true);
         }
 
-        private void addDownForce(){
-            downforce = Mathf.Abs( DownForceValue * rigidbody.velocity.magnitude);
-            downforce = KPH > 60 ? downforce : 0;
-            rigidbody.AddForce(-transform.up * downforce );
-
+        public void ChangeColor(Color color)
+        {
+            _utilities.ChangeColor(color);
         }
-  
+
+        private void AddDownForce()
+        {
+            downforce = Mathf.Abs(DownForceValue * rigidbody.velocity.magnitude);
+            downforce = KPH > 60 ? downforce : 0;
+            rigidbody.AddForce(-transform.up * downforce);
+        }
+
         private void Friction(){
     
             WheelHit hit;

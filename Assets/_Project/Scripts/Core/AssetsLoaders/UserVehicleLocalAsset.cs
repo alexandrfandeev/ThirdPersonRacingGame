@@ -1,14 +1,14 @@
 using System.Threading.Tasks;
-using _Project.vehicle;
+using _Project.Scripts.VehicleController.Entities;
 using UnityEngine;
 
 namespace _Project.Scripts.Core.AssetsLoaders
 {
     public class UserVehicleLocalAsset : LocalAssetLoader
     {
-        public Task<controller> Load()
+        public Task<CarController> Load()
         {
-            return LoadInternal<controller>("UserVehicle");
+            return LoadInternal<CarController>("UserVehicle");
         }
 
         public void Unload()

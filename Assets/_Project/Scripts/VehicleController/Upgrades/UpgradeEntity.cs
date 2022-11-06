@@ -10,7 +10,7 @@ namespace _Project.Scripts.VehicleController.Upgrades
         public virtual int Current { get; }
         public virtual bool IsMaxLevel { get; }
         public virtual bool HaveMoney { get; }
-        public abstract void Initialize();
+        public abstract void Initialize(VehicleData data);
         public abstract void OnUpgrade();
     }
 }

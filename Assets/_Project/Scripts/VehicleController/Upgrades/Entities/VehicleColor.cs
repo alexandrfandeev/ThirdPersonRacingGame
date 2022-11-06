@@ -14,15 +14,15 @@ namespace _Project.Scripts.VehicleController.Upgrades.Entities
         public override UpgradeType Type => UpgradeType.Color;
         public override int Level => UpgradesSaveSystem.GetUpgradeLevel(Type);
 
-
         private void Awake()
         {
             _changeableMaterial.color = _upgradableColors.First();
         }
 
-        public override void Initialize()
-        {
+        public override void Initialize(VehicleData data)
+        { 
             _changeableMaterial.color = _upgradableColors[Level - 1];
+            data.Color = _upgradableColors[Level - 1];
             Signal.Current.Fire<StartChangeColor>(new StartChangeColor{CurrentID = Level, OnChangeColor = OnUpgradeWithSelection});
         }
 
@@ -33,7 +33,7 @@ namespace _Project.Scripts.VehicleController.Upgrades.Entities
         }
 
         public override void OnUpgrade()
-        {
+        { 
             _changeableMaterial.color = _upgradableColors[Level - 1];
         }
     }

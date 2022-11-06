@@ -8,7 +8,9 @@ using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.GUi.Race;
 using _Project.Scripts.Resources;
 using _Project.Scripts.SaveSystem;
-using _Project.vehicle;
+using _Project.Scripts.VehicleController;
+using _Project.Scripts.VehicleController.Entities;
+using _Project.Scripts.VehicleController.Upgrades;
 using UnityEngine;
 
 namespace _Project.Scripts.SceneSystem
@@ -22,7 +24,7 @@ namespace _Project.Scripts.SceneSystem
         private UserVehicleLocalAsset UserAsset => AssetsProvider.Current.UserAsset;
 
         private AICarDriver _ai;
-        private controller _vehicle;
+        private CarController _vehicle;
         
         public void InitializeService()
         {
@@ -60,6 +62,7 @@ namespace _Project.Scripts.SceneSystem
                 }
             });
             yield return new WaitForSeconds(_startingDelay);
+            _vehicle.ChangeColor(ServiceLocator.Current.Get<IVehicleController>().Data.Color);
             _ai.Initialize();
             ServiceLocator.Current.Get<ICameraManager>().SwitchCamera(_vehicle.transform);
         }

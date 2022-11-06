@@ -23,9 +23,10 @@ namespace _Project.Scripts.VehicleController.Upgrades.Entities
         public override UpgradeType Type => UpgradeType.HealthPoints;
         public override int Level => UpgradesSaveSystem.GetUpgradeLevel(Type);
 
-        public override void Initialize()
+        public override void Initialize(VehicleData data)
         {
             Signal.Current.Fire<HealthPointsUpgradable>(new HealthPointsUpgradable {OnUpgrade = OnUpgrade});
+            data.HP = Current;
         }
 
         public override void OnUpgrade()

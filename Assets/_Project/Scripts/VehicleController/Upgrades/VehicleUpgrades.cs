@@ -13,9 +13,9 @@ namespace _Project.Scripts.VehicleController.Upgrades
             ServiceLocator.Current.Register<IUpgradeSystem>(this);
         }
         
-        public void Initialize()
+        public void Initialize(VehicleData data)
         {
-            _upgrades.ForEach(x => x.Initialize());
+            _upgrades.ForEach(x => x.Initialize(data));
         }
 
         public int UpgradePrice(UpgradeType type)
@@ -41,7 +41,7 @@ namespace _Project.Scripts.VehicleController.Upgrades
 
     public interface IUpgradeSystem : IGameService
     {
-        public void Initialize();
+        public void Initialize(VehicleData data);
         public int UpgradePrice(UpgradeType type);
         public int CurrentValue(UpgradeType type);
         public bool IsMaxLevel(UpgradeType type);
