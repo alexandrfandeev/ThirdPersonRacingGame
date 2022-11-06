@@ -9,14 +9,12 @@ namespace _Project.Scripts.GUi.Settings.SettingsEntities
     {
         public override void Open()
         {
-            _settingsButton.interactable = false;
             UiUtilities.ScaleAndFade(null, _rectTransform, _background, 1f, 0.65f, _animationDuration);
             StartCoroutine(AnimationUtilities.WaitForAction(() => Time.timeScale = 0f, _animationDuration));
         }
 
         public override void Close()
         {
-            _settingsButton.interactable = true;
             Time.timeScale = 1f;
             UiUtilities.ScaleAndFade(null, _rectTransform, _background, 0f, 0f, _animationDuration);
         }

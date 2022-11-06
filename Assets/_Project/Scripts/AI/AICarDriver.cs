@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.SceneSystem;
 using _Project.Scripts.VehicleController.Utilities;
+using _Project.Scripts.VehicleController.Utilities.AI;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -12,10 +13,12 @@ namespace _Project.Scripts.AI
     public class AICarDriver : MonoBehaviour
     {
         [SerializeField] private List<VehicleAIMesh> _aiMeshes = new List<VehicleAIMesh>();
-        
+        [SerializeField] private AiWheelsControls _wheelsControls;
         
         private Rigidbody _rigidBody;
         private Transform _ownTransform;
+        
+        #region Fields
         private Vector3 _targetPosition;
         private Vector3 _directionToMovePosition;
         private float _speed;
@@ -25,18 +28,17 @@ namespace _Project.Scripts.AI
         private float _angleToDirection;
         private float _turnAmount;
         
-        #region Fields
-        private float _speedMax = 13f;
-        private float _speedMin = -5f;
-        private float _acceleration = 10f;
-        private float _brakeSpeed = 100f;
-        private float _reverseSpeed = 30f;
-        private float _idleSlowdown = 10f;
+        private readonly float _speedMax = 13f;
+        private readonly float _speedMin = -5f;
+        private readonly float _acceleration = 10f;
+        private readonly float _brakeSpeed = 100f;
+        private readonly float _reverseSpeed = 30f;
+        private readonly float _idleSlowdown = 10f;
 
         private float _turnSpeed;
-        private float _turnSpeedMax = 300f;
-        private float _turnSpeedAcceleration = 300f;
-        private float _turnIdleSlowdown = 500f;
+        private readonly float _turnSpeedMax = 300f;
+        private readonly float _turnSpeedAcceleration = 300f;
+        private readonly float _turnIdleSlowdown = 500f;
         #endregion
         
         public void Initialize()
@@ -44,11 +46,13 @@ namespace _Project.Scripts.AI
             _aiMeshes[ServiceLocator.Current.Get<ISceneManager>().Scene - 2].EnableMesh();
             _rigidBody = GetComponent<Rigidbody>();
             _targetPosition = FindObjectOfType<AITarget>().Position;
+            _wheelsControls.Initialize(_rigidBody);
             _ownTransform = transform;
         }
 
         public void StartRace()
         {
+            _wheelsControls.StopPreparing();
             StartCoroutine(Move());
         }
         
@@ -56,6 +60,7 @@ namespace _Project.Scripts.AI
         {
             while (true)
             {
+                _wheelsControls.ControlWheels(transform.rotation.x);
                 float reachedTargetDistance = 4f;
                 _distanceToTarget = Vector3.Distance(_ownTransform.position, _targetPosition);
                 if (_distanceToTarget > reachedTargetDistance)

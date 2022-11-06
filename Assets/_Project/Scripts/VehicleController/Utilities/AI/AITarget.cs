@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Project.Scripts.VehicleController.Utilities
+namespace _Project.Scripts.VehicleController.Utilities.AI
 {
     public class AITarget : MonoBehaviour
     {

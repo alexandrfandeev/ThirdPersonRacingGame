@@ -8,12 +8,12 @@ namespace _Project.Scripts.GUi.Settings.SettingsEntities
         [SerializeField] private GraphicsApplier _graphics;
         public override void Initialize()
         {
+            base.Initialize();
             _graphics.Initialize();
         }
 
         public override void Open()
         {
-            _settingsButton.interactable = false;
             UiUtilities.ScaleAndFade(() =>
             {
                 PauseManager.Current.StartPause();
@@ -22,7 +22,6 @@ namespace _Project.Scripts.GUi.Settings.SettingsEntities
 
         public override void Close()
         {
-            _settingsButton.interactable = true;
             UiUtilities.ScaleAndFade(() =>
             {
                 PauseManager.Current.StopPause();

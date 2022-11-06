@@ -263,6 +263,7 @@ GameObject:
   - component: {fileID: 5027580943157948089}
   - component: {fileID: 217148155690426414}
   - component: {fileID: 3626199459459756007}
+  - component: {fileID: 8463808401436287233}
   m_Layer: 0
   m_Name: SM_Veh_Exotic_01_Wheel_rr
   m_TagString: Untagged
@@ -335,6 +336,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8463808401436287233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595010345296112469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e368893e453334a95c162c74e0bf5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &909347920643476509
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,6 +417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 909347921084802156}
   - component: {fileID: 909347921084802157}
+  - component: {fileID: 7569836735343260967}
   - component: {fileID: 909347921084802154}
   - component: {fileID: 909347921084802155}
   m_Layer: 0
@@ -446,6 +460,20 @@ MonoBehaviour:
   _aiMeshes:
   - {fileID: 8943204809012208554}
   - {fileID: 4536092363224537688}
+  _wheelsControls: {fileID: 7569836735343260967}
+--- !u!114 &7569836735343260967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909347921084802152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcff887acae73a34098c62ea906e65c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelSpeedAmplifier: 500
 --- !u!65 &909347921084802154
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1068,6 +1096,7 @@ GameObject:
   - component: {fileID: 1157006430678508404}
   - component: {fileID: 1182213652458369442}
   - component: {fileID: 1174180777909913456}
+  - component: {fileID: 6695115809790303520}
   m_Layer: 0
   m_Name: SM_Veh_Attach_Wheel_01 (1)
   m_TagString: Untagged
@@ -1141,6 +1170,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6695115809790303520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160116167373301950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e368893e453334a95c162c74e0bf5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1160119582800541848
 GameObject:
   m_ObjectHideFlags: 0
@@ -1614,6 +1655,7 @@ GameObject:
   - component: {fileID: 1157501643442638448}
   - component: {fileID: 1182266511118369880}
   - component: {fileID: 1175088052751313442}
+  - component: {fileID: 3098960890618530199}
   m_Layer: 0
   m_Name: SM_Veh_Attach_Wheel_01
   m_TagString: Untagged
@@ -1687,6 +1729,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3098960890618530199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160254104875552984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e368893e453334a95c162c74e0bf5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1160270342885788518
 GameObject:
   m_ObjectHideFlags: 0
@@ -2947,6 +3001,7 @@ GameObject:
   - component: {fileID: 1157474643762445916}
   - component: {fileID: 1182940956990439394}
   - component: {fileID: 1174682538883826138}
+  - component: {fileID: 1768994078666455697}
   m_Layer: 0
   m_Name: SM_Veh_Attach_Wheel_01 (3)
   m_TagString: Untagged
@@ -3020,6 +3075,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1768994078666455697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160547053340088818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e368893e453334a95c162c74e0bf5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1160547731180626640
 GameObject:
   m_ObjectHideFlags: 0
@@ -3778,6 +3845,7 @@ GameObject:
   - component: {fileID: 1157712592332747976}
   - component: {fileID: 1182915229177010022}
   - component: {fileID: 1173756763453359458}
+  - component: {fileID: 8233840840092806320}
   m_Layer: 0
   m_Name: SM_Veh_Attach_Wheel_01 (2)
   m_TagString: Untagged
@@ -3851,6 +3919,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8233840840092806320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160725483772611784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e368893e453334a95c162c74e0bf5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1160794966760265622
 GameObject:
   m_ObjectHideFlags: 0
@@ -5808,6 +5888,7 @@ GameObject:
   - component: {fileID: 5707984015263649838}
   - component: {fileID: 896793197909079610}
   - component: {fileID: 557870055422605221}
+  - component: {fileID: 4130912849325308982}
   m_Layer: 0
   m_Name: SM_Veh_Exotic_01_Wheel_rl
   m_TagString: Untagged
@@ -5880,6 +5961,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4130912849325308982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6326657345868716205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e368893e453334a95c162c74e0bf5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6341924429590925897
 GameObject:
   m_ObjectHideFlags: 0
@@ -5891,6 +5984,7 @@ GameObject:
   - component: {fileID: 5769725749337468002}
   - component: {fileID: 3186645314876887827}
   - component: {fileID: 271052115812223056}
+  - component: {fileID: 5982768267661870400}
   m_Layer: 0
   m_Name: SM_Veh_Exotic_01_Wheel_fl
   m_TagString: Untagged
@@ -5963,6 +6057,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5982768267661870400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6341924429590925897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e368893e453334a95c162c74e0bf5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6373859744608611947
 GameObject:
   m_ObjectHideFlags: 0
@@ -6725,6 +6831,7 @@ GameObject:
   - component: {fileID: 1708179716409913160}
   - component: {fileID: 6122055640856751628}
   - component: {fileID: 7679814910146762061}
+  - component: {fileID: 2348756891451993668}
   m_Layer: 0
   m_Name: SM_Veh_Exotic_01_Wheel_fr
   m_TagString: Untagged
@@ -6797,6 +6904,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2348756891451993668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8336108490940609836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e368893e453334a95c162c74e0bf5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8340631468846904346
 GameObject:
   m_ObjectHideFlags: 0
