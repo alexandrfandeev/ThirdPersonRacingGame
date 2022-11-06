@@ -3407,12 +3407,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Friction: 1.38
+  inputM: {fileID: 8743614778790230945}
+  controller: {fileID: 8743614778790230950}
   wheelObjects:
   - {fileID: 8743614777830889615}
   - {fileID: 8743614777595029446}
   - {fileID: 8743614777763664935}
   - {fileID: 8743614778587884508}
-  wheels:
+  Colliders:
   - {fileID: 8743614777876260604}
   - {fileID: 8743614779264582448}
   - {fileID: 8743614779019472515}
@@ -3429,10 +3431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94698f9f4869d684e8eeb7930fd25349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vertical: 0
-  horizontal: 0
-  handbrake: 0
-  boosting: 0
 --- !u!114 &8743614778790230950
 MonoBehaviour:
   m_ObjectHideFlags: 0

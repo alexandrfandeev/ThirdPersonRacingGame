@@ -1,8 +1,10 @@
+using System.Collections;
+using _Project.Scripts.VehicleController.Entities;
 using UnityEngine;
 
 namespace _Project.vehicle
 {
-    [RequireComponent(typeof(wheelsManager)) ]
+    [RequireComponent(typeof(VehicleWheelsManager)) ]
     [RequireComponent(typeof(VehicleInputs)) ]
     public class controller : MonoBehaviour{
     
@@ -15,7 +17,7 @@ namespace _Project.vehicle
 
         //scripts ->
         private VehicleInputs IM;
-        private wheelsManager wheelsmanager;
+        private VehicleWheelsManager wheelsmanager;
 
         //components
         private WheelFrictionCurve  forwardFriction,sidewaysFriction;
@@ -62,8 +64,11 @@ namespace _Project.vehicle
         private bool lightsFlag ;
         private bool engineLerp ;
 
-        private void Start() {
+        private IEnumerator Start() {
             getObjects();
+            wheelsmanager.Initialize(IM.Axis.Vertical);
+            yield return new WaitForSeconds(1f);
+            StartCoroutine(Drive());
         }
 
         public void StartRace()
@@ -71,18 +76,21 @@ namespace _Project.vehicle
             IM.LockInputs(false);
         }
 
-        private void Update() {
-
-            addDownForce();
-            SteerVehicle();
-            calculateEnginePower();
-            Friction();
-            if(isAutomatic)
-                shifter();
-            else
-                Manual();
-
-
+        private IEnumerator Drive()
+        {
+            while (true)
+            {
+                wheelsmanager.HandleWheels();
+                addDownForce();
+                SteerVehicle();
+                calculateEnginePower();
+                Friction();
+                if(isAutomatic)
+                    shifter();
+                else
+                    Manual();
+                yield return null;
+            }
         }
 
         void FixedUpdate(){
@@ -258,8 +266,8 @@ namespace _Project.vehicle
         private void getObjects(){
             IM = GetComponent<VehicleInputs>();
             rigidbody = GetComponent<Rigidbody>();
-            wheelsmanager = GetComponent<wheelsManager>();
-            wheels = wheelsmanager.wheels;
+            wheelsmanager = GetComponent<VehicleWheelsManager>();
+            wheels = wheelsmanager.Colliders;
             wheelSlip = new float[wheels.Length];
             rigidbody.centerOfMass = gameObject.transform.Find("centerOfMas").gameObject.transform.localPosition;
             IM.LockInputs(true);

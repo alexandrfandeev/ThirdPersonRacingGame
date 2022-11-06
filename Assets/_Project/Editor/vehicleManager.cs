@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Project.Scripts.VehicleController.Entities;
 using _Project.vehicle;
 using UnityEngine;
 using UnityEditor;
@@ -395,8 +396,7 @@ public class vehicleManager : EditorWindow{
     }
 
     void setInstances(){
-        wheelsManager manager = VehicleObject.GetComponent<wheelsManager>();
-        manager.wheels = wheels;
+        VehicleWheelsManager manager = VehicleObject.GetComponent<VehicleWheelsManager>();
         manager.wheelObjects = wheelsObjects;
     }
 

@@ -47,7 +47,6 @@ namespace _Project.Scripts.SceneSystem
             bool wasLevelCompleted =
                 LevelDataSaveSystem.GetLevelState(ServiceLocator.Current.Get<ISceneManager>().Scene) == 1;
             int earnings = wasLevelCompleted ? _data.CompletedLevelReward : _data.FirstTimeLevelReward;
-            ResourcesSaveSystem.IncrementResourceAmount(Resource.Coin, earnings);
             return earnings;
         }
 

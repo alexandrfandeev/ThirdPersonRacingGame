@@ -3,6 +3,7 @@ using System.Collections;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.Development;
+using _Project.Scripts.Resources;
 using _Project.Scripts.SaveSystem;
 using _Project.Scripts.SceneSystem;
 using TMPro;
@@ -24,7 +25,9 @@ namespace _Project.Scripts.GUi.LevelUI
         [SerializeField] private GameObject _loseView;
 
         private Action _onSubmit;
-
+        private int _earnAmount;
+        
+        
         [Sub]
         private void OnFinishLevel(FinishLevel reference)
         {
@@ -33,8 +36,9 @@ namespace _Project.Scripts.GUi.LevelUI
             if (reference.IsWin)
             {
                 LevelDataSaveSystem.SetLevelComplete(ServiceLocator.Current.Get<ISceneManager>().Scene);
+                _earnAmount = reference.EarnedCoins;
                 _winView.SetActive(true);
-                _coinsAmount.text = reference.EarnedCoins.ToString();
+                _coinsAmount.text = _earnAmount.ToString();
             }
             else _loseView.SetActive(true);
             StartCoroutine(OpenWithDelay());
@@ -56,6 +60,7 @@ namespace _Project.Scripts.GUi.LevelUI
         public void BackToMenu()
         {
             _onSubmit?.Invoke();
+            ResourcesSaveSystem.IncrementResourceAmount(Resource.Coin, _earnAmount);
             PauseManager.Current.StopPause();
             ServiceLocator.Current.Get<ISceneManager>().LoadScene(1);
         }

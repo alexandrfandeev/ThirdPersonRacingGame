@@ -1,7 +1,7 @@
 ﻿using _Project.Scripts.Core.InputManager;
 using UnityEngine;
 
-namespace _Project.vehicle
+namespace _Project.Scripts.VehicleController.Entities
 {
     public class VehicleInputs : MonoBehaviour
     {
