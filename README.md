@@ -20,8 +20,9 @@ level environment, and after some time (can be editted in prefab) the camera is 
 
 Basic game controls are [W, A, S, D] for movement, [Space] for handbraking and [Shift/Control] for gears change. 
 
-Implementations, that I made in free-time are: UI speedometer, starting scene animation (camera view, enabling race-counter), 
-bot AI vehicle wheels rotation, added settings in race levels that offers to player possibillity to restart level or return to
+Implementations, that I made in free-time are: UI speedometer, level reward depended on level completition state,
+starting scene animation (camera view, enabling race-counter), bot AI vehicle wheels rotation, added settings 
+in race levels that offers to player possibillity to restart level or return to
 main menu, vehicle mesh rotation in garage scene and general pause system.
 
 Total time, that was spent on this project is about 1,5 - 1,7 working days (18 - 20 hours). 
