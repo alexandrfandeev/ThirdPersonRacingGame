@@ -8,7 +8,7 @@ namespace _Project.Scripts.GUi.Utilities
     {
         public void Buy(int count)
         {
-#if !UNITY_EDITOR
+#if PLATFORM_STANDALONE_OSX
                 ResourcesSaveSystem.IncrementResourceAmount(Resource.Coin, count);
 #endif
         }
